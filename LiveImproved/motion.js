@@ -12,8 +12,7 @@
       will-change: transform, opacity, filter;
     }
     .orb {
-      animation: drift 16s ease-in-out infinite alternate;
-      will-change: transform;
+      display: none;
     }
     .orb:nth-of-type(1) { animation-duration: 18s; }
     .orb:nth-of-type(2) { animation-duration: 24s; animation-direction: alternate-reverse; }
@@ -42,7 +41,7 @@
       text-wrap: balance;
       text-shadow: 0 10px 32px rgba(0,0,0,.24);
     }
-    .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box {
+    .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box, .formal-shell, .formal-grid, .formal-left, .formal-right, .formal-rail, .formal-card, .formal-meta {
       will-change: transform, opacity;
     }
     .scene::after {
@@ -79,7 +78,7 @@
   });
 
   const scenes = [...stage.querySelectorAll('.scene')];
-  const items = [...stage.querySelectorAll('.headline, .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box, .status, .logo, .screen-head, .topbar, .overlay')];
+  const items = [...stage.querySelectorAll('.headline, .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box, .status, .logo, .screen-head, .topbar, .overlay, .formal-shell, .formal-meta, .formal-grid, .formal-left, .formal-right, .formal-rail, .formal-card')];
   if (window.gsap) {
     gsap.set(scenes, { opacity: 0, y: 26, scale: 0.985, filter: 'blur(10px)' });
     gsap.set(items, { opacity: 0, y: 16 });
@@ -87,7 +86,7 @@
     scenes.forEach((scene, idx) => {
       const start = idx * 5;
       tl.to(scene, { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out' }, start + 0.1);
-      tl.fromTo(scene.querySelectorAll('.kicker, .headline, .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box, .status, .logo, .screen-head, .topbar, .overlay, .cta'),
+      tl.fromTo(scene.querySelectorAll('.kicker, .headline, .subhead, .fine, .chip, .card, .mini, .metric-main, .ring, .chart, .coach-box, .status, .logo, .screen-head, .topbar, .overlay, .cta, .formal-card'),
         { opacity: 0, y: 18 },
         { opacity: 1, y: 0, stagger: 0.045, duration: 0.45, ease: 'power2.out' },
         start + 0.18

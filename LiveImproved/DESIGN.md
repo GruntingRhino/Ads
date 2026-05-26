@@ -46,6 +46,9 @@ A masculine, aggressive, high-performance self-improvement brand. The visuals sh
 - Use contrast, cards, and framed screenshots for proof
 - Let negative space breathe around the key message
 - Use motion to move attention, not clutter
+- Prefer a formal editorial frame over a simple stacked hero
+- Split the scene into a strong copy column and an evidence column when possible
+- Use case-file cards, rails, and framed product panels so the page feels designed, not templated
 
 ## What NOT to Do
 - No soft pastel productivity vibes

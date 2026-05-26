@@ -13,5 +13,6 @@ Ad construction principles:
 - Show the product doing the work instead of describing it
 - Use transitions, motion, and visual rhythm so the frame never feels static
 - Finish with one clear command CTA
+- Favor a formal editorial layout with a strong copy column and a proof/evidence column
 
 Each ad lives in its own folder and is rendered as its own vertical video.
