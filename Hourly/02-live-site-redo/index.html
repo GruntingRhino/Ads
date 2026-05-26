@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoodHours Live Ad Redo</title>
+  <style>
+    :root {
+      --blue:#1d4ed8;
+      --navy:#0f172a;
+      --gold:#d4af37;
+      --bg:#f8fafc;
+      --text:#e5eefc;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; width:100%; height:100%; background: linear-gradient(135deg,#f8fafc,#eaf1ff); font-family: Arial, Helvetica, sans-serif; }
+    body { overflow:hidden; }
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(212,175,55,.18), transparent 34%),
+        radial-gradient(circle at 84% 18%, rgba(29,78,216,.14), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+    }
+    .chip {
+      position:absolute; left:112px; top:74px;
+      color:#1d4ed8; font-weight:800; letter-spacing:.08em; font-size:20px;
+    }
+    .title {
+      position:absolute; left:112px; top:142px; width:440px;
+      font-family: Georgia, 'Times New Roman', serif;
+      color:#0f172a; font-weight:700; line-height: 1.0;
+      font-size: 50px;
+      text-wrap: balance;
+      text-shadow: 0 1px 0 rgba(255,255,255,.7);
+    }
+    .sub {
+      position:absolute; left:112px; top:366px; width:480px;
+      color:#334155; font-size:24px; line-height:1.34;
+    }
+    .cta {
+      position:absolute; left:112px; top:786px;
+      background:#d4af37; color:#0f172a; font-weight:800;
+      padding:22px 30px; border-radius:16px; font-size:22px;
+      box-shadow: 0 18px 40px rgba(15,23,42,.16);
+    }
+    .note {
+      position:absolute; left:112px; top:884px; color:#64748b; font-size:18px;
+    }
+    .screenshot-card {
+      position:absolute; right:42px; top:162px;
+      width: 390px; border-radius: 28px; overflow:hidden;
+      box-shadow: 0 28px 60px rgba(15,23,42,.18);
+      background:#fff;
+      border: 1px solid rgba(255,255,255,.5);
+    }
+    .screenshot-card img { display:block; width:100%; height:auto; }
+    .bottom-band {
+      position:absolute; left:0; right:0; bottom:0; height:300px;
+      background: linear-gradient(180deg, rgba(29,78,216,.65), rgba(15,23,42,.58));
+      display:flex; align-items:flex-start;
+    }
+    .bottom-band .copy {
+      color:#f8fbff; font-size:21px; line-height:1.4;
+      width: 860px; margin: 44px 0 0 112px;
+    }
+
+    /* Slide 2 */
+    .scene2 .title { top: 132px; width: 620px; }
+    .scene2 .sub { top: 346px; width: 610px; }
+    .cards {
+      position:absolute; left:112px; top:560px; width: 500px;
+      display:grid; gap:18px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .card {
+      min-height: 134px; border-radius: 18px; background: rgba(255,255,255,.88);
+      border: 1px solid rgba(29,78,216,.12);
+      box-shadow: 0 18px 40px rgba(15,23,42,.08);
+      padding:20px 18px;
+    }
+    .card h3 { margin:0 0 10px; font-size:22px; color:#0f172a; }
+    .card p { margin:0; color:#334155; font-size:18px; line-height:1.35; }
+    .side-screenshot {
+      position:absolute; right:62px; top:152px; width: 404px;
+      border-radius: 28px; overflow:hidden;
+      box-shadow: 0 28px 60px rgba(15,23,42,.18);
+      background:#fff;
+      border: 1px solid rgba(255,255,255,.5);
+    }
+    .badge {
+      position:absolute; right:90px; top:92px; padding:10px 16px; border-radius:999px;
+      background: rgba(29,78,216,.1); color:#1d4ed8; font-size:14px; font-weight:800; letter-spacing:.08em;
+    }
+
+    /* Slide 3 */
+    .scene3 { background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%); }
+    .scene3 .overlay {
+      position:absolute; left:112px; top:122px; width: 660px; padding: 30px 34px;
+      background: rgba(15,23,42,.74); backdrop-filter: blur(8px);
+      border-radius: 28px; color:#fff; box-shadow: 0 22px 52px rgba(15,23,42,.24);
+    }
+    .scene3 .overlay .eyebrow { color:#fcd34d; font-size:18px; font-weight:800; letter-spacing:.12em; }
+    .scene3 .overlay .title { position:static; width:auto; font-size:54px; color:#fff; margin-top:14px; line-height:1.0; }
+    .scene3 .overlay .sub { position:static; width:auto; color:#dbeafe; font-size:22px; margin-top:18px; }
+    .scene3 .cta2 {
+      position:absolute; left:112px; top:770px; background:#d4af37; color:#0f172a;
+      font-size:22px; font-weight:900; padding:22px 30px; border-radius:16px;
+      box-shadow: 0 18px 40px rgba(15,23,42,.16);
+    }
+    .scene3 .screenshot-card { right: 62px; top: 132px; width: 420px; }
+    .scene3 .footer {
+      position:absolute; left:112px; bottom: 98px; color:#e5eefc; font-size:18px;
+      padding: 12px 16px; background: rgba(29,78,216,.2); border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const slide = p.get('slide') || '1';
+    document.body.className = `scene${slide}`;
+  </script>
+
+  <div class="slide scene1" id="s1">
+    <div class="chip">LIVE GOODHOURS.APP</div>
+    <div class="title">The trusted system of record for student volunteer hours</div>
+    <div class="sub">School-first tracking for volunteer hours. Keep the record clean, verified, and controlled by the school.</div>
+    <div class="cta">Register your school — free</div>
+    <div class="note">Students and partners join by invitation only.</div>
+    <div class="screenshot-card"><img src="hero_live.png" alt="GoodHours hero screenshot"></div>
+    <div class="bottom-band"><div class="copy">Free for schools. Clear enough for staff, students, and families. Built for administrators who need one reliable record.</div></div>
+  </div>
+
+  <div class="slide scene2" id="s2" style="display:none">
+    <div class="chip">LIVE GOODHOURS.APP</div>
+    <div class="badge">ADMIN VIEW</div>
+    <div class="title">Three steps. One controlled workflow.</div>
+    <div class="sub">Register the school. Invite students and approved partners. Track and verify every hour through a structured audit trail.</div>
+    <div class="cards">
+      <div class="card"><h3>1. School registers</h3><p>Use the school email, set up cohorts, and become the trusted anchor for every record.</p></div>
+      <div class="card"><h3>2. Invite partners</h3><p>Bring in approved community partners and keep the workflow school-controlled.</p></div>
+      <div class="card"><h3>3. Track & verify</h3><p>Students complete service. Admins verify it. Every hour stays auditable.</p></div>
+      <div class="card"><h3>Fast reporting</h3><p>Export clean records without spreadsheet chaos or manual reconciliation.</p></div>
+    </div>
+    <div class="side-screenshot"><img src="howitworks_live.png" alt="GoodHours how it works screenshot"></div>
+  </div>
+
+  <div class="slide scene3" id="s3" style="display:none">
+    <div class="chip" style="color:#1d4ed8">LIVE GOODHOURS.APP</div>
+    <div class="overlay">
+      <div class="eyebrow">FINAL CTA</div>
+      <div class="title">Free for schools. Invitation-only for everyone else.</div>
+      <div class="sub">GoodHours keeps the record right. Start with your school, sign in with Google, and let the system do the tracking.</div>
+    </div>
+    <div class="cta2">Sign in with Google to register</div>
+    <div class="screenshot-card"><img src="cta_live.png" alt="GoodHours CTA screenshot"></div>
+    <div class="footer">Already registered? Sign in.</div>
+  </div>
+
+  <script>
+    const active = document.body.className.replace('scene','');
+    document.querySelectorAll('.slide').forEach(el => el.style.display = 'none');
+    document.getElementById('s' + active).style.display = 'block';
+  </script>
+</body>
+</html>

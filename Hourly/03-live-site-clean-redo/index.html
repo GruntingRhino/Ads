@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoodHours Clean Live-Site Ad</title>
+  <style>
+    :root {
+      --blue: #1D4ED8;
+      --blue-2: #2563EB;
+      --navy: #0F172A;
+      --gold: #D4AF37;
+      --paper: #F8FAFC;
+      --sky: #E8F1FF;
+      --muted: #64748B;
+      --line: rgba(15, 23, 42, 0.08);
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(29, 78, 216, 0.10), transparent 30%),
+        radial-gradient(circle at 84% 16%, rgba(212, 175, 55, 0.10), transparent 24%),
+        linear-gradient(180deg, #fff 0%, #f7f9fe 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+    }
+
+    body { display: grid; place-items: center; }
+
+    #stage {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(29, 78, 216, 0.10), transparent 30%),
+        radial-gradient(circle at 84% 16%, rgba(212, 175, 55, 0.10), transparent 24%),
+        linear-gradient(180deg, #fff 0%, #f7f9fe 100%);
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    .scene-content {
+      width: 100%;
+      height: 100%;
+      padding: 78px 84px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      box-sizing: border-box;
+    }
+
+    .eyebrow {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: var(--blue);
+      text-transform: uppercase;
+    }
+
+    .eyebrow.gold {
+      color: #0F172A;
+      background: rgba(212,175,55,0.20);
+      padding: 10px 14px;
+      border: 1px solid rgba(212,175,55,0.35);
+      display: inline-flex;
+      border-radius: 999px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .headline {
+      font-size: 58px;
+      line-height: 0.97;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      max-width: 560px;
+      text-wrap: balance;
+    }
+
+    .subhead {
+      font-size: 24px;
+      line-height: 1.38;
+      color: #334155;
+      max-width: 520px;
+    }
+
+    .copy-compact {
+      font-size: 22px;
+      line-height: 1.42;
+      color: #334155;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      background: #1D4ED8;
+      color: white;
+      font-size: 21px;
+      font-weight: 800;
+      padding: 20px 28px;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(29, 78, 216, 0.26);
+    }
+
+    .micro {
+      font-size: 17px;
+      color: #475569;
+    }
+
+    .card {
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .shot {
+      position: absolute;
+      background: white;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .proof-row {
+      position: absolute;
+      left: 84px;
+      right: 84px;
+      bottom: 102px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .proof-chip {
+      height: 88px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(248,250,252,0.96));
+      border: 1px solid rgba(29,78,216,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 20px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+    }
+
+    .proof-chip strong {
+      font-size: 28px;
+      line-height: 1;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+
+    .proof-chip span {
+      margin-top: 8px;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    .s1-copy {
+      position: absolute;
+      left: 84px;
+      top: 102px;
+      width: 500px;
+      z-index: 2;
+    }
+
+    .s1-copy .headline { margin-top: 20px; }
+    .s1-copy .subhead { margin-top: 24px; }
+    .s1-copy .btn { margin-top: 36px; }
+    .s1-copy .micro { margin-top: 14px; }
+
+    .s1-shot {
+      right: 72px;
+      top: 120px;
+      width: 430px;
+      height: 840px;
+      z-index: 1;
+      transform-origin: 50% 12%;
+    }
+
+    .s1-shot img { object-position: 50% 0%; }
+
+    .s1-glow {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 520px;
+      background: linear-gradient(180deg, rgba(255,255,255,0), rgba(15,23,42,0.04));
+      pointer-events: none;
+    }
+
+    .s2-content {
+      padding-top: 110px;
+    }
+
+    .s2-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .s2-copy {
+      max-width: 520px;
+    }
+
+    .s2-copy .headline {
+      max-width: 560px;
+      font-size: 52px;
+    }
+
+    .admin-badge {
+      align-self: flex-start;
+      margin-top: 8px;
+      background: rgba(29, 78, 216, 0.10);
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      border-radius: 999px;
+    }
+
+    .steps-wrap {
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      gap: 28px;
+      align-items: start;
+      margin-top: 8px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+      padding-right: 8px;
+    }
+
+    .step {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(29,78,216,0.10);
+      box-shadow: 0 18px 34px rgba(15,23,42,0.07);
+      padding: 18px 18px 18px 18px;
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 14px;
+      align-items: start;
+      min-height: 102px;
+    }
+
+    .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      background: #1D4ED8;
+      box-shadow: 0 12px 20px rgba(29,78,216,0.22);
+      margin-top: 2px;
+    }
+
+    .step h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 7px;
+      color: var(--navy);
+    }
+
+    .step p {
+      font-size: 17px;
+      line-height: 1.38;
+      color: #475569;
+    }
+
+    .s2-shot {
+      width: 100%;
+      height: 760px;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .s2-shot img { object-position: 50% 44%; }
+
+    .s2-note {
+      margin-top: 20px;
+      color: #64748B;
+      font-size: 17px;
+      line-height: 1.4;
+      max-width: 560px;
+    }
+
+    .s3-content {
+      padding-top: 92px;
+    }
+
+    .s3-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .s3-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 87%;
+      filter: saturate(1.02) contrast(1.01);
+    }
+
+    .s3-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.18) 46%, rgba(15, 23, 42, 0.10) 72%, rgba(15, 23, 42, 0.26) 100%),
+        radial-gradient(circle at 18% 22%, rgba(29,78,216,0.10), transparent 26%),
+        radial-gradient(circle at 80% 16%, rgba(212,175,55,0.14), transparent 22%);
+    }
+
+    .s3-panel {
+      position: absolute;
+      left: 84px;
+      top: 118px;
+      width: 560px;
+      padding: 34px 34px 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.72);
+    }
+
+    .s3-panel .headline {
+      font-size: 54px;
+      max-width: 500px;
+    }
+
+    .s3-panel .subhead {
+      margin-top: 18px;
+      max-width: 470px;
+      font-size: 22px;
+    }
+
+    .s3-panel .btn { margin-top: 28px; }
+    .s3-panel .micro { margin-top: 12px; color: #64748B; }
+
+    .s3-pill {
+      position: absolute;
+      right: 84px;
+      top: 100px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.16);
+      color: #8A6710;
+      border: 1px solid rgba(212,175,55,0.32);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .s3-footer {
+      position: absolute;
+      left: 84px;
+      bottom: 132px;
+      font-size: 17px;
+      color: rgba(255,255,255,0.88);
+      background: rgba(15,23,42,0.36);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 12px 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .scene-1 { opacity: 1; }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <div id="stage" data-composition-id="goodhours-clean-redo" data-start="0" data-duration="22.5" data-width="1080" data-height="1920">
+    <div class="scene clip scene-1" id="scene1" data-start="0" data-duration="7.5" data-track-index="0">
+      <div class="scene-content">
+        <div class="s1-copy">
+          <div class="eyebrow">LIVE GOODHOURS.APP</div>
+          <h1 class="headline">School-first community service tracking.</h1>
+          <p class="subhead">Register the school. Invite approved partners. Keep every hour auditable.</p>
+          <div class="btn">Register Your School — Free</div>
+          <div class="micro">Students and partners join by invitation only.</div>
+        </div>
+
+        <div class="shot s1-shot card" id="shot1">
+          <img src="hero_live.png" alt="GoodHours live homepage hero" crossorigin="anonymous" />
+        </div>
+
+        <div class="proof-row" id="proofRow1">
+          <div class="proof-chip">
+            <strong>700,000+</strong>
+            <span>Community partners across USA</span>
+          </div>
+          <div class="proof-chip">
+            <strong>100%</strong>
+            <span>Verified school-controlled records</span>
+          </div>
+          <div class="proof-chip">
+            <strong>FERPA</strong>
+            <span>Compliant student data security</span>
+          </div>
+        </div>
+
+        <div class="s1-glow"></div>
+      </div>
+    </div>
+
+    <div class="scene clip scene-2" id="scene2" data-start="7.0" data-duration="7.5" data-track-index="1">
+      <div class="scene-content s2-content">
+        <div class="s2-head">
+          <div class="s2-copy">
+            <div class="eyebrow">HOW IT WORKS</div>
+            <h2 class="headline">Three steps. One school-controlled workflow.</h2>
+          </div>
+          <div class="admin-badge">Admin view</div>
+        </div>
+
+        <div class="steps-wrap">
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <h3>School registers</h3>
+                <p>Admin sign-in with Google and a trusted school email. The school becomes the anchor.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <h3>Invite approved partners</h3>
+                <p>Create cohorts, add students, and keep every community partner inside approval flow.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <h3>Track and verify</h3>
+                <p>Students complete service. Admins verify it. Every hour stays clean and auditable.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="shot s2-shot card" id="shot2">
+            <img src="howworks_live.png" alt="GoodHours how it works live capture" crossorigin="anonymous" />
+          </div>
+        </div>
+
+        <div class="s2-note">Built for school staff who need one clear record instead of a spreadsheet mess.</div>
+      </div>
+    </div>
+
+    <div class="scene clip scene-3" id="scene3" data-start="14.0" data-duration="8.5" data-track-index="2">
+      <div class="s3-bg">
+        <img src="cta_live.png" alt="GoodHours final CTA live capture" crossorigin="anonymous" />
+      </div>
+      <div class="s3-overlay"></div>
+      <div class="s3-panel">
+        <div class="eyebrow gold">FINAL CTA</div>
+        <h2 class="headline">Free for schools. Invitation-only for everyone else.</h2>
+        <p class="subhead">GoodHours keeps the record right. Start with the school, sign in with Google, and let the system handle the tracking.</p>
+        <div class="btn">Sign In with Google to Register</div>
+        <div class="micro">Already registered? Sign in.</div>
+      </div>
+      <div class="s3-pill">School admin flow</div>
+      <div class="s3-footer">Trusted record. Clean audit trail. No spreadsheet chaos.</div>
+    </div>
+
+    <audio id="voiceover" src="voiceover.mp3" data-track-index="3" data-start="0" data-duration="21.6"></audio>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const scene1 = document.getElementById('scene1');
+    const scene2 = document.getElementById('scene2');
+    const scene3 = document.getElementById('scene3');
+    const shot1 = document.getElementById('shot1');
+    const shot2 = document.getElementById('shot2');
+    const proofRow1 = document.getElementById('proofRow1');
+    const s1copy = document.querySelector('.s1-copy');
+    const s2head = document.querySelector('.s2-head');
+    const steps = document.querySelectorAll('.step');
+    const s2note = document.querySelector('.s2-note');
+    const s3panel = document.querySelector('.s3-panel');
+    const s3pill = document.querySelector('.s3-pill');
+    const s3footer = document.querySelector('.s3-footer');
+
+    gsap.set(scene1, { opacity: 1 });
+    gsap.set([scene2, scene3], { opacity: 0 });
+    gsap.set([shot1, shot2], { scale: 1.03 });
+
+    tl.from(s1copy, { opacity: 0, x: -24, duration: 0.7, ease: 'power2.out' }, 0.15)
+      .from(shot1, { opacity: 0, y: 34, scale: 1.05, duration: 0.9, ease: 'power3.out' }, 0.2)
+      .from(proofRow1, { opacity: 0, y: 26, duration: 0.65, ease: 'power2.out' }, 0.65)
+      .to(shot1, { scale: 1.0, duration: 6.6, ease: 'none' }, 0.2)
+      .to([s1copy, proofRow1], { y: -6, duration: 6.6, ease: 'none' }, 0.2)
+      .to(scene2, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 7.0)
+      .from(s2head, { opacity: 0, y: 20, duration: 0.55, ease: 'power2.out' }, 7.15)
+      .from(steps, { opacity: 0, x: -20, stagger: 0.12, duration: 0.6, ease: 'power2.out' }, 7.30)
+      .from(shot2, { opacity: 0, y: 28, scale: 1.04, duration: 0.8, ease: 'power3.out' }, 7.08)
+      .from(s2note, { opacity: 0, y: 18, duration: 0.5, ease: 'power2.out' }, 8.25)
+      .to(shot2, { scale: 1.0, duration: 6.2, ease: 'none' }, 7.08)
+      .to(scene3, { opacity: 1, duration: 0.8, ease: 'power2.out' }, 14.0)
+      .from(s3panel, { opacity: 0, x: -24, duration: 0.7, ease: 'power2.out' }, 14.15)
+      .from(s3pill, { opacity: 0, y: -16, duration: 0.45, ease: 'power2.out' }, 14.22)
+      .from(s3footer, { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' }, 14.75)
+      .to(document.querySelector('.s3-bg img'), { scale: 1.03, duration: 7.0, ease: 'none' }, 14.4);
+
+    window.__timelines['goodhours-clean-redo'] = tl;
+  </script>
+</body>
+</html>

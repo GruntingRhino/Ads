@@ -1,0 +1,1 @@
+GoodHours keeps student hours, approvals, and reporting in one school-controlled workflow.
