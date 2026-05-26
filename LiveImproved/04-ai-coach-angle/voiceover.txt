@@ -1,10 +1,10 @@
 Most trackers stop at logging.
 
-This one tells you what to do next.
+This one tells you what to do next —
 
 Data without direction is just noise.
 
-Liv Improved reads your behavior and calls the next move.
+Live Improved reads your behavior and calls the next move.
 
 Not generic motivation. Specific feedback from your actual life.
 
