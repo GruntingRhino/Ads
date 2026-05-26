@@ -22,6 +22,30 @@ A masculine, aggressive, high-performance self-improvement brand. The visuals sh
 - Short pauses on proof points
 - Sharp crossfades between scenes
 - No floaty, cheerful easing
+- Use animated reveals, subtle zooms, and moving light to make the frame feel alive
+
+## High-Performing Ad Structure
+- Hook in the first 1–2 seconds with a pain statement, identity claim, or contrarian truth
+- One promise per ad, not five features
+- Show proof immediately after the hook: UI, numbers, before/after, or a concrete consequence
+- Use short voiceover lines: 3–8 words per beat is ideal
+- Make the viewer feel seen before you explain the product
+- End with one clear command CTA
+
+## Copy Rules
+- Speak directly to `you`
+- Prefer concrete nouns and numbers over abstract motivation
+- Use terse, punchy language
+- Avoid fluffy startup language
+- Make every line advance the story: pain -> visibility -> proof -> action
+
+## Layout Rules
+- One dominant focal point per scene
+- One support cluster per scene
+- Keep the headline huge and the body text short
+- Use contrast, cards, and framed screenshots for proof
+- Let negative space breathe around the key message
+- Use motion to move attention, not clutter
 
 ## What NOT to Do
 - No soft pastel productivity vibes
@@ -29,3 +53,4 @@ A masculine, aggressive, high-performance self-improvement brand. The visuals sh
 - No playful bubbly UI
 - No weak CTA language like “try it out” or “maybe download”
 - No cluttered paragraphs
+- No scene that tries to explain everything at once
