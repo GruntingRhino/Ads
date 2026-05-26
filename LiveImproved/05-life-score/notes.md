@@ -1,7 +1,8 @@
 # 05-life-score
 
 Hook: What is your life score today?
-CTA: Improve intentionally.
+CTA: Move the number.
+Proof: scoreboard, trend, and category scores.
 Tone: masculine / assertive / dark / cinematic
 Voice: am_michael
 Duration target: ~26s

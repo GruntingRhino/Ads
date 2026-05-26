@@ -1,9 +1,11 @@
 I built this because the other apps were incomplete.
 
-They tracked pieces. None of them tracked the whole man.
+They tracked pieces. None tracked the whole man.
 
-So I built a personal operating system for self-improvement...
+So I built a personal operating system for self-improvement.
 
 One place for habits, energy, focus, and progress.
 
-No clutter. No noise. The system beats motivation every single time.
+The system beats motivation every single time.
+
+Track the whole system.
